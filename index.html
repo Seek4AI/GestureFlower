@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花朵绽放交互</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="loading" class="loading-container">
+        <div id="progress-text">加载中...</div>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+        <video id="camera-input" autoplay playsinline style="display: none;"></video>
+        <div id="video-container">
+            <video id="flower-video" loop style="display: none;"></video>
+            <canvas id="webgl-canvas"></canvas>
+        </div>
+        <div id="controls">
+            <div id="video-selector">
+                <label for="video-select">选择花朵视频:</label>
+                <select id="video-select"></select>
+            </div>
+            <div id="hand-status">
+                <div class="status-indicator">
+                    <span>手部状态:</span>
+                    <span id="hand-openness">未检测到手部</span>
+                </div>
+                <div class="progress-container">
+                    <div id="openness-progress" class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MediaPipe 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    
+    <!-- 帧提取器脚本 -->
+    <script src="frame-extractor.js"></script>
+    <!-- 图像序列渲染器脚本 -->
+    <script src="image-sequence-renderer.js"></script>
+    <!-- 手部可视化脚本 -->
+    <script src="hand-visualization.js"></script>
+    <!-- 主应用脚本 -->
+    <script src="script.js"></script>
+</body>
+</html>
